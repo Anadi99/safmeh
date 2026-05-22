@@ -40,7 +40,9 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: SafMehTheme.softWhite,
       body: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
-          if (state is AuthError) {
+          if (state is AuthAuthenticated) {
+            Navigator.of(context).pushReplacementNamed('/dashboard');
+          } else if (state is AuthError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.message),

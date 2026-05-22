@@ -52,7 +52,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
       body: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
-          if (state is AuthError) {
+          if (state is AuthAuthenticated) {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              '/dashboard',
+              (route) => false,
+            );
+          } else if (state is AuthError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.message),
