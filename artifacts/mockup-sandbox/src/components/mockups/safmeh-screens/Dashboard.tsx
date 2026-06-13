@@ -20,7 +20,7 @@ export function Dashboard() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
               <p style={{ margin: 0, fontSize: 13, color: "#FF6B9D", fontWeight: 600 }}>Good evening 🌸</p>
-              <h1 style={{ margin: "2px 0 0", fontSize: 22, fontWeight: 800, color: "#2D2D2D" }}>Sara's Dashboard</h1>
+              <h1 style={{ margin: "2px 0 0", fontSize: 22, fontWeight: 800, color: "#2D2D2D" }}>Mehak's Dashboard</h1>
             </div>
             <div style={{ width: 42, height: 42, borderRadius: 21, background: "linear-gradient(135deg,#FF6B9D,#FFB6C8)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 12px rgba(255,107,157,0.3)" }}>
               <span style={{ fontSize: 20 }}>👤</span>
