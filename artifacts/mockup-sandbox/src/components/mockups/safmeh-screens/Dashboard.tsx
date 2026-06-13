@@ -1,14 +1,16 @@
+const FONT_IMPORT = "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap";
+
 export function Dashboard() {
   return (
-    <div style={{ fontFamily: "'Nunito', sans-serif", background: "#FFF8FA", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ width: 390, height: 844, background: "#FFF8FA", borderRadius: 40, overflow: "hidden", position: "relative", display: "flex", flexDirection: "column", boxShadow: "0 30px 80px rgba(255,107,157,0.18)" }}>
+    <div style={{ fontFamily: "'Space Grotesk', sans-serif", background: "#FFF8FA", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <link rel="stylesheet" href={FONT_IMPORT} />
+      <div style={{ width: 390, height: 844, background: "#FFF8FA", borderRadius: 40, overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: "0 30px 80px rgba(255,107,157,0.18)" }}>
 
         {/* Status bar */}
-        <div style={{ background: "#FFF8FA", padding: "14px 24px 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: 13, fontWeight: 700, color: "#333" }}>9:41</span>
+        <div style={{ padding: "16px 24px 0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: "#333", letterSpacing: "0.02em" }}>9:41</span>
           <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><rect x="0" y="3" width="3" height="9" rx="1" fill="#333"/><rect x="4.5" y="2" width="3" height="10" rx="1" fill="#333"/><rect x="9" y="0" width="3" height="12" rx="1" fill="#333"/><rect x="13.5" y="0" width="2.5" height="12" rx="1" fill="#ddd"/></svg>
-            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 2.5C10.5 2.5 12.7 3.6 14.2 5.3L15.5 4C13.7 2 11 1 8 1C5 1 2.3 2 0.5 4L1.8 5.3C3.3 3.6 5.5 2.5 8 2.5Z" fill="#333"/><path d="M8 5.5C9.7 5.5 11.2 6.2 12.3 7.3L13.6 6C12.1 4.6 10.2 3.8 8 3.8C5.8 3.8 3.9 4.6 2.4 6L3.7 7.3C4.8 6.2 6.3 5.5 8 5.5Z" fill="#333"/><circle cx="8" cy="10" r="1.5" fill="#333"/></svg>
             <div style={{ width: 25, height: 12, border: "1.5px solid #333", borderRadius: 3, padding: "1px 2px", display: "flex", alignItems: "center" }}>
               <div style={{ width: "80%", height: "100%", background: "#4CAF50", borderRadius: 1.5 }} />
             </div>
@@ -16,72 +18,77 @@ export function Dashboard() {
         </div>
 
         {/* Header */}
-        <div style={{ padding: "18px 24px 0" }}>
+        <div style={{ padding: "20px 24px 0" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
-              <p style={{ margin: 0, fontSize: 13, color: "#FF6B9D", fontWeight: 600 }}>Good evening 🌸</p>
-              <h1 style={{ margin: "2px 0 0", fontSize: 22, fontWeight: 800, color: "#2D2D2D" }}>Mehak's Dashboard</h1>
+              <p style={{ margin: 0, fontSize: 12, color: "#FF6B9D", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>Good evening</p>
+              <h1 style={{ margin: "4px 0 0", fontSize: 24, fontWeight: 700, color: "#1A1A1A", letterSpacing: "-0.02em" }}>Mehak's Dashboard</h1>
             </div>
-            <div style={{ width: 42, height: 42, borderRadius: 21, background: "linear-gradient(135deg,#FF6B9D,#FFB6C8)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 12px rgba(255,107,157,0.3)" }}>
-              <span style={{ fontSize: 20 }}>👤</span>
+            <div style={{ width: 40, height: 40, borderRadius: 20, background: "linear-gradient(135deg,#FF6B9D,#FFB6C8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             </div>
           </div>
 
           {/* Safe status pill */}
-          <div style={{ marginTop: 14, background: "#A8E6CF", borderRadius: 20, padding: "8px 16px", display: "inline-flex", alignItems: "center", gap: 8 }}>
-            <div style={{ width: 8, height: 8, borderRadius: 4, background: "#2E7D32" }} />
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#2E7D32" }}>You are Safe · Trusted Circle Active</span>
+          <div style={{ marginTop: 14, background: "#EDFAF3", borderRadius: 10, padding: "8px 14px", display: "inline-flex", alignItems: "center", gap: 8, border: "1px solid #C3EDD5" }}>
+            <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#22C55E" }} />
+            <span style={{ fontSize: 12, fontWeight: 600, color: "#166534", letterSpacing: "0.01em" }}>Safe · Trusted Circle Active</span>
           </div>
         </div>
 
         {/* Quick actions grid */}
-        <div style={{ padding: "18px 20px 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <div style={{ padding: "20px 20px 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           {[
-            { icon: "🚶", label: "Safe Walk", sub: "Start journey", color: "#FFE4EE", accent: "#FF6B9D" },
-            { icon: "🆘", label: "Silent SOS", sub: "Emergency help", color: "#FFD5E5", accent: "#FF4B8B" },
-            { icon: "🎭", label: "Pretend Mode", sub: "Hide the app", color: "#E8F5FF", accent: "#5B9BD5" },
-            { icon: "📞", label: "Fake Call", sub: "Exit situation", color: "#FFF0D9", accent: "#E87A00" },
+            { icon: "→", label: "Safe Walk", sub: "Start journey", color: "#FFE4EE", accent: "#FF6B9D", svgPath: "M5 12h14M13 6l6 6-6 6" },
+            { icon: "!", label: "Silent SOS", sub: "Emergency help", color: "#FFD5E5", accent: "#FF4B8B", svgPath: "M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" },
+            { icon: "◎", label: "Pretend Mode", sub: "Hide the app", color: "#EEF4FF", accent: "#5B9BD5", svgPath: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8zM12 12a3 3 0 100-6 3 3 0 000 6z" },
+            { icon: "↗", label: "Fake Call", sub: "Exit situation", color: "#FFF4E5", accent: "#E87A00", svgPath: "M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15l-.08 1.92z" },
           ].map((item) => (
-            <div key={item.label} style={{ background: item.color, borderRadius: 18, padding: "16px 14px", cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
-              <div style={{ fontSize: 26, marginBottom: 8 }}>{item.icon}</div>
-              <p style={{ margin: 0, fontSize: 14, fontWeight: 800, color: "#2D2D2D" }}>{item.label}</p>
-              <p style={{ margin: "2px 0 0", fontSize: 11, color: "#888" }}>{item.sub}</p>
+            <div key={item.label} style={{ background: item.color, borderRadius: 18, padding: "18px 16px", cursor: "pointer" }}>
+              <div style={{ width: 34, height: 34, borderRadius: 10, background: item.accent, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d={item.svgPath} />
+                </svg>
+              </div>
+              <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#1A1A1A", letterSpacing: "-0.01em" }}>{item.label}</p>
+              <p style={{ margin: "3px 0 0", fontSize: 11, color: "#888", fontWeight: 500 }}>{item.sub}</p>
             </div>
           ))}
         </div>
 
         {/* Recent activity */}
-        <div style={{ padding: "20px 20px 0" }}>
-          <h2 style={{ margin: 0, fontSize: 15, fontWeight: 800, color: "#2D2D2D" }}>Recent Activity</h2>
-          <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 8 }}>
+        <div style={{ padding: "22px 20px 0" }}>
+          <h2 style={{ margin: "0 0 12px", fontSize: 14, fontWeight: 700, color: "#1A1A1A", letterSpacing: "-0.01em" }}>Recent Activity</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {[
-              { icon: "🚶", text: "Safe Walk completed", time: "2h ago", color: "#E8F5E9" },
-              { icon: "📍", text: "Location shared with Mum", time: "5h ago", color: "#FFF3E0" },
-              { icon: "💕", text: "Comfort message received", time: "Yesterday", color: "#FCE4EC" },
+              { label: "Safe Walk completed", time: "2h ago", bg: "#E8F5E9", color: "#166534", dot: "#22C55E" },
+              { label: "Location shared with Mum", time: "5h ago", bg: "#FFF4E5", color: "#92400E", dot: "#F59E0B" },
+              { label: "Comfort message received", time: "Yesterday", bg: "#FFF0F6", color: "#9D174D", dot: "#FF6B9D" },
             ].map((item) => (
-              <div key={item.text} style={{ background: "#fff", borderRadius: 14, padding: "12px 14px", display: "flex", alignItems: "center", gap: 12, boxShadow: "0 1px 6px rgba(0,0,0,0.06)" }}>
-                <div style={{ width: 36, height: 36, borderRadius: 12, background: item.color, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>{item.icon}</div>
+              <div key={item.label} style={{ background: "#fff", borderRadius: 14, padding: "12px 14px", display: "flex", alignItems: "center", gap: 12, border: "1px solid #F3F3F3" }}>
+                <div style={{ width: 8, height: 8, borderRadius: "50%", background: item.dot, flexShrink: 0 }} />
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: "#2D2D2D" }}>{item.text}</p>
-                  <p style={{ margin: 0, fontSize: 11, color: "#aaa" }}>{item.time}</p>
+                  <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: "#1A1A1A" }}>{item.label}</p>
                 </div>
+                <span style={{ fontSize: 11, color: "#bbb", fontWeight: 500, whiteSpace: "nowrap" }}>{item.time}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Bottom nav */}
-        <div style={{ marginTop: "auto", background: "#fff", borderTop: "1px solid #FFE4EE", padding: "10px 0 20px", display: "flex", justifyContent: "space-around" }}>
+        <div style={{ marginTop: "auto", background: "#fff", borderTop: "1px solid #F3EEF0", padding: "10px 0 24px", display: "flex", justifyContent: "space-around" }}>
           {[
-            { icon: "🏠", label: "Home", active: true },
-            { icon: "👥", label: "Circle" },
-            { icon: "🗺️", label: "Route" },
-            { icon: "💕", label: "Comfort" },
+            { label: "Home", active: true, path: "M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" },
+            { label: "Circle", path: "M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" },
+            { label: "Route", path: "M3 12h18M3 6h18M3 18h18" },
+            { label: "Comfort", path: "M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" },
           ].map((tab) => (
-            <div key={tab.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3, opacity: tab.active ? 1 : 0.45 }}>
-              <span style={{ fontSize: 22 }}>{tab.icon}</span>
-              <span style={{ fontSize: 10, fontWeight: tab.active ? 800 : 600, color: tab.active ? "#FF6B9D" : "#aaa" }}>{tab.label}</span>
-              {tab.active && <div style={{ width: 4, height: 4, borderRadius: 2, background: "#FF6B9D" }} />}
+            <div key={tab.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill={tab.active ? "#FF6B9D" : "none"} stroke={tab.active ? "#FF6B9D" : "#C0B0B5"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d={tab.path} />
+              </svg>
+              <span style={{ fontSize: 10, fontWeight: tab.active ? 700 : 500, color: tab.active ? "#FF6B9D" : "#C0B0B5", letterSpacing: "0.02em" }}>{tab.label}</span>
             </div>
           ))}
         </div>
