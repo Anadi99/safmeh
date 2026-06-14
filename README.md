@@ -188,7 +188,7 @@ Open `server.js` and update the contacts in two places:
 ```js
 // In the SOS screen HTML — update name + phone number
 { name: 'Mum',  tel: '+447700900001' },
-{ name: 'Riya', tel: '+447700900002' },
+{ name: 'Meku', tel: '+447700900002' },
 
 // Fake call names (randomly selected)
 const fakeCallers = ['Mum', 'Riya', 'Priya', 'Best Friend', 'Work'];
