@@ -1,253 +1,275 @@
-# SafMeh 🌸 — Your Personal Safety Companion
-
-> *"Even when no one is physically there, someone still cares about your safety."*
-
-SafMeh is a calm, emotionally supportive personal safety app built with Flutter. Unlike traditional safety apps that feel alarming and stressful, SafMeh focuses on **quiet protection, emotional reassurance, and instant safety support** — all wrapped in a soft white-and-pink interface that never makes you anxious.
-
----
-
-## ✨ Features
-
-### 🚶 Safe Walk Mode
-Start a protected journey with one tap. SafMeh silently monitors your route in the background — tracking your location every 10 seconds, detecting unusual stops, route deviations, and falls. If something seems wrong, it gently asks *"Are you okay?"* and automatically triggers emergency mode if you don't respond within 15 seconds.
-
-### 🆘 Silent SOS System
-Get help without attracting attention. Trigger an emergency alert using:
-- **Power button** pressed 3× within 2 seconds
-- **Shake** the phone for 2 seconds
-- **Volume pattern** up-up-down within 3 seconds
-- **Voice keyword** activation
-
-Once triggered, SafMeh silently shares your live location, starts recording audio evidence, and notifies your trusted contacts — all without any visible alerts or sounds.
-
-### 🎭 Pretend Mode
-Disguise SafMeh as a normal app. Choose from:
-- **Calculator** — enter your PIN with the number buttons
-- **Notes** — type your PIN as text
-- **Journal** — write your PIN as a diary entry
-- **Music Player** — use the skip button pattern
-
-The real Safety Dashboard is hidden behind your secret PIN.
-
-### 📞 Fake Call Escape System
-Trigger a realistic fake incoming call to exit uncomfortable situations. Customize the caller name, photo, ringtone, and pre-recorded voice clip. Schedule calls in advance or trigger instantly.
-
-### 💕 Comfort Corner
-Personal notes, motivational quotes, and comforting reminders. SafMeh shows a warm message when you arrive safely — *"Glad you reached safely 🌸"* — because emotional safety matters too.
-
-### 🗺️ Temporary Route Sharing
-Share your live journey with trusted contacts including ETA, movement status, and battery percentage. The session automatically expires when you arrive or when the timer ends — no permanent tracking.
-
-### 👥 Trusted Circle
-A private safety circle of family and close friends. Only they receive SOS alerts, location access, and emergency recordings.
+<div align="center">
+  <h1>🛡️ SafMeh</h1>
+  <p><strong>A personal safety companion — because your safety matters.</strong></p>
+  <p>
+    <img src="https://img.shields.io/badge/built%20with-Node.js-green?style=flat-square"/>
+    <img src="https://img.shields.io/badge/maps-Leaflet%20%2B%20OpenStreetMap-blue?style=flat-square"/>
+    <img src="https://img.shields.io/badge/font-Space%20Grotesk-ff6b9d?style=flat-square"/>
+    <img src="https://img.shields.io/badge/status-live-brightgreen?style=flat-square"/>
+    <img src="https://img.shields.io/badge/no%20install-web%20app-orange?style=flat-square"/>
+  </p>
+  <br/>
+  <em>"Even when no one is physically there, someone still cares about your safety."</em>
+</div>
 
 ---
 
-## 📱 Screenshots
+## What is SafMeh?
 
-> *Coming soon — custom doodle icons and animations in progress*
+SafMeh is a **mobile-first personal safety web app** that runs entirely in the browser — no install needed. It gives you real, working tools to stay safe when walking alone, travelling late, or in any uncomfortable situation.
+
+Unlike heavy native apps, SafMeh loads instantly and works on any phone. Just open the link and it's ready.
 
 ---
 
-## 🏗️ Architecture
+## Screenshots
 
-SafMeh is built with a clean, scalable architecture:
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/dashboard.jpg" width="200" alt="Dashboard"/>
+      <br/><strong>Dashboard</strong><br/>
+      <sub>All features at a glance</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/safe-walk.jpg" width="200" alt="Safe Walk with live GPS map"/>
+      <br/><strong>Safe Walk</strong><br/>
+      <sub>Live GPS + route tracking</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/silent-sos.jpg" width="200" alt="Silent SOS screen"/>
+      <br/><strong>Silent SOS</strong><br/>
+      <sub>Emergency alerts + contacts</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/pretend-mode.jpg" width="200" alt="Pretend Mode — Calculator disguise"/>
+      <br/><strong>Pretend Mode</strong><br/>
+      <sub>Calculator disguise</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+## Video Walkthrough
+
+> 🎬 **To record a walkthrough:** Use your phone's built-in screen recorder (iOS: Control Centre → Screen Record · Android: Quick Settings → Screen Record), then open the app and walk through each feature below.
+
+**Suggested recording flow (≈ 2 min):**
 
 ```
-lib/
-├── cubits/          # BLoC/Cubit state management (9 feature cubits)
-├── models/          # Data models with toJson/fromJson
-├── screens/         # UI screens (auth, dashboard, all features)
-├── services/        # Business logic services (location, SOS, audio, etc.)
-├── theme/           # White & pink design system (SafMehTheme)
-└── widgets/         # Reusable widgets (GlassCard, SoftButton, SosOverlay)
+1. Open app → Dashboard — show the 4 feature cards and safe status pill
+2. Tap Safe Walk → allow GPS → show live map dot + route drawing + check-in timer
+3. Back → tap Silent SOS → tap the SOS button → show dark activated state + SMS/call links
+4. Cancel SOS → tap Pretend Mode → show working calculator
+5. Triple-tap top bar → app returns from calculator → tap Fake Call → show incoming call UI
 ```
-
-**State Management:** BLoC/Cubit pattern  
-**Repository Pattern:** All services use abstract interfaces — swap mock → real Firebase by replacing one class  
-**Background Services:** `flutter_background_service` for Android foreground service  
-**Platform Channels:** Native Android `EventChannel` for power/volume button interception
 
 ---
 
-## 🛠️ Tech Stack
+## Features
 
-| Layer | Technology |
+### 🏠 Dashboard
+Your home screen. Shows your safety status, Trusted Circle activity indicator, and quick-access cards for all four core features. Recent activity is listed so you can see what happened and when.
+
+---
+
+### 🚶 Safe Walk — Live GPS + Map Tracking
+
+> Tap **Safe Walk** → allow location → walk safely
+
+| What happens | How |
 |---|---|
-| Frontend | Flutter 3.x (Dart) |
-| State Management | flutter_bloc / Cubit |
-| Backend (ready) | Firebase (Auth, Firestore, Realtime DB, Storage, FCM) |
-| Maps | Google Maps API |
-| SMS Alerts | Twilio API (via Cloud Functions) |
-| Encryption | AES-256-CBC (encrypt package) |
-| Secure Storage | flutter_secure_storage |
-| Sensors | sensors_plus, geolocator |
-| Audio | record package |
-| Font | Nunito (Google Fonts) |
+| Real-time GPS | `navigator.geolocation.watchPosition()` — updates every few seconds |
+| Live map | Leaflet.js + OpenStreetMap tiles — your pink dot moves as you move |
+| Route drawing | Each GPS point is connected — your path is drawn on the map |
+| Distance tracking | Haversine formula calculates metres/km travelled in real time |
+| Trip timer | Live MM:SS counter starts when you open the screen |
+| Check-in countdown | 5-minute timer — tap **"I'm okay"** to reset it |
+| Sharing | Shows contacts your location is shared with (Mum, Riya, +1) |
+| End session | **"Arrived Safely"** clears all tracking and returns to dashboard |
+
+**GPS flow:**
+```
+Allow location → watchPosition() starts → Leaflet map centres on you
+→ Pink dot updates live → route path drawn → check-in timer counts down
+→ "Arrived Safely" clears everything
+```
 
 ---
 
-## 🚀 Getting Started
+### 🆘 Silent SOS — Emergency Alert System
 
-### Prerequisites
+> Tap **Silent SOS** → tap the big button → your circle is alerted silently
 
-- Flutter 3.x (`flutter --version`)
-- Android Studio or VS Code
-- Android device or emulator (API 21+)
+When triggered, SafMeh:
 
-### Installation
+1. **Grabs your GPS coordinates** instantly
+2. **Starts microphone recording** (browser `getUserMedia`)
+3. **Pre-fills SMS messages** to emergency contacts — location + Google Maps link — one tap to send
+4. **Shows direct call links** to each contact — one tap to call
+
+**Pre-filled SOS message:**
+```
+SOS! I need help. My location: https://maps.google.com/?q=LAT,LNG — SafMeh
+```
+
+**Other trigger methods:**
+
+| Method | How |
+|---|---|
+| Screen button | Tap the large pink SOS button |
+| Power × 3 | Press power button rapidly 3 times |
+| Volume pattern | Up · Up · Down within 3 seconds |
+| Voice keyword | Say your secret phrase |
+
+> **Note on SMS/calls:** Browser security requires one tap to send a message or call. The SMS and dialer open pre-filled — just tap send/call. Native apps can do this fully silently; a future native version of SafMeh will.
+
+---
+
+### 👁️ Pretend Mode — Calculator Disguise
+
+> Tap **Pretend Mode** → app becomes a fully working calculator
+
+If someone grabs your phone or checks what you're doing, Pretend Mode instantly disguises SafMeh as a standard iOS-style calculator. It's fully functional — you can actually do maths on it.
+
+| Feature | Detail |
+|---|---|
+| Looks like | iOS Calculator (dark theme, orange operators) |
+| Actually works | Full arithmetic — +, −, ×, ÷, %, +/- |
+| Secret return | **Triple-tap the top bar** of the screen to go back to SafMeh |
+| No trace | No indication the app is SafMeh |
+
+---
+
+### 📞 Fake Call — Exit Any Situation
+
+> Tap **Fake Call** → realistic incoming call appears on screen
+
+Creates a full-screen incoming call overlay — your excuse to leave any uncomfortable situation immediately.
+
+| Feature | Detail |
+|---|---|
+| Caller name | Randomly chosen from: Mum, Riya, Priya, Best Friend, Work |
+| Phone vibration | `navigator.vibrate()` pulses the phone |
+| Answer | Starts a live call timer — looks like a real active call |
+| Decline | Dismisses the overlay cleanly |
+
+---
+
+## Getting Started
+
+### Run locally
 
 ```bash
-# Clone the repository
+# Clone the repo
 git clone https://github.com/Anadi99/safmeh.git
 cd safmeh
 
-# Install dependencies
-flutter pub get
+# No npm install needed — zero dependencies!
+node server.js
 
-# Run the app (mock mode — no Firebase needed)
-flutter run
+# Open in your browser
+open http://localhost:5000
 ```
 
-The app runs fully in **mock mode** out of the box. All features work with simulated data — no Firebase configuration required to explore the UI and logic.
+### Best on mobile
 
-### Running Tests
-
-```bash
-flutter test
-```
-
-177 tests, 0 failures.
+1. Deploy to [Replit](https://replit.com), [Railway](https://railway.app), or [Render](https://render.com)
+2. Open the URL on your phone
+3. Browser menu → **"Add to Home Screen"** — works like a native app icon
 
 ---
 
-## 🔥 Firebase Setup (Production)
+## Customising Emergency Contacts
 
-To wire real Firebase services:
+Open `server.js` and update the contacts in two places:
 
-1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-2. Add an Android app with package name `com.safmeh.safmeh`
-3. Download `google-services.json` → place in `android/app/`
-4. Enable **Authentication** (Email/Password + Biometric)
-5. Enable **Firestore Database** and deploy the security rules from `lib/services/firestore_security_rules.dart`
-6. Enable **Firebase Storage** for audio evidence
-7. Enable **Cloud Messaging** for push notifications
-8. Replace each `Mock*Repository` class with a real Firebase implementation
+```js
+// In the SOS screen HTML — update name + phone number
+{ name: 'Mum',  tel: '+447700900001' },
+{ name: 'Riya', tel: '+447700900002' },
 
----
-
-## 🔐 Security
-
-- All local user data encrypted with `flutter_secure_storage` (AES-256 on Android, Keychain on iOS)
-- Audio evidence encrypted with AES-256-CBC before upload
-- Firestore security rules enforce owner-only access — no user can read another user's data
-- Generic error messages on auth failures (no email enumeration)
-- Biometric authentication support (fingerprint / face recognition)
-
----
-
-## 📁 Project Structure
-
-```
-safmeh/
-├── android/                    # Android platform code
-│   └── app/src/main/
-│       ├── AndroidManifest.xml # Permissions + background service
-│       └── kotlin/.../
-│           └── MainActivity.kt # Hardware button EventChannel
-├── ios/                        # iOS platform code
-├── lib/
-│   ├── cubits/
-│   │   ├── auth/               # Login, register, biometric
-│   │   ├── battery/            # Battery monitoring + thresholds
-│   │   ├── comfort/            # Notes + comfort messages
-│   │   ├── fake_call/          # Fake call scheduling
-│   │   ├── pretend_mode/       # Decoy UI + PIN validation
-│   │   ├── route_share/        # Live route sharing
-│   │   ├── safe_walk/          # Journey tracking + check-in
-│   │   ├── sos/                # Silent SOS lifecycle
-│   │   └── trusted_circle/     # Contact management
-│   ├── models/                 # 11 data models
-│   ├── screens/
-│   │   ├── auth/               # Login + Register
-│   │   ├── comfort/            # Comfort Corner
-│   │   ├── dashboard/          # Safety Dashboard (main hub)
-│   │   ├── fake_call/          # Fake Call screen
-│   │   ├── pretend_mode/       # 4 decoy UIs
-│   │   ├── route_share/        # Route Share panel
-│   │   ├── safe_walk/          # Safe Walk sheet + Check-in prompt
-│   │   └── trusted_circle/     # Trusted Circle management
-│   ├── services/
-│   │   ├── background_sensor_processor.dart
-│   │   ├── battery_coordinator.dart
-│   │   ├── encryption_service.dart
-│   │   ├── fall_detector.dart
-│   │   ├── hardware_button_channel.dart
-│   │   ├── safe_walk_coordinator.dart
-│   │   ├── sos_coordinator.dart
-│   │   └── ... (20+ service files)
-│   ├── theme/
-│   │   └── safmeh_theme.dart   # White & pink design system
-│   └── widgets/
-│       ├── check_in_prompt.dart
-│       ├── glass_card.dart
-│       ├── soft_button.dart
-│       └── sos_overlay.dart
-└── test/                       # 177 unit tests
+// Fake call names (randomly selected)
+const fakeCallers = ['Mum', 'Riya', 'Priya', 'Best Friend', 'Work'];
 ```
 
+Replace with your actual emergency contacts.
+
 ---
 
-## 🎨 Design System
+## Permissions
 
-SafMeh uses a warm white-and-pink palette designed to feel safe, not alarming:
-
-| Token | Color | Use |
+| Permission | Used for | When asked |
 |---|---|---|
-| `blushPink` | `#FFB6C8` | Primary / buttons |
-| `deepPink` | `#FF6B9D` | Accent / active states |
-| `palePink` | `#FFE4EE` | Card backgrounds |
-| `softWhite` | `#FFF8FA` | App background |
-| `dustyRose` | `#FFCDD8` | Borders / dividers |
-| `safeGreen` | `#A8E6CF` | Safe / confirmed states |
-| `emergencyRose` | `#FF8FAB` | Emergency (soft, not alarming) |
+| 📍 Location | GPS tracking in Safe Walk · SOS location capture | Opening Safe Walk or SOS |
+| 🎙️ Microphone | Audio recording when SOS is triggered | On SOS activation |
 
-Typography: **Nunito** — rounded, friendly, warm.
+Permissions are asked in context — never on first load.
 
 ---
 
-## 🗺️ Roadmap
+## Tech Stack
 
-- [ ] Wire real Firebase (Auth, Firestore, Storage, FCM)
-- [ ] Custom doodle icons and Lottie animations
-- [ ] Real GPS via `geolocator`
-- [ ] Real accelerometer via `sensors_plus`
-- [ ] Real audio recording via `record` package
-- [ ] Twilio SMS Cloud Function deployment
-- [ ] AI distress detection (voice stress analysis)
-- [ ] Smartwatch integration (heart rate, fall detection)
-- [ ] App Store / Play Store release
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+| Layer | Technology |
+|---|---|
+| Server | Node.js built-in `http` — zero npm dependencies |
+| Maps | [Leaflet.js](https://leafletjs.com/) + [OpenStreetMap](https://openstreetmap.org) |
+| GPS | `navigator.geolocation.watchPosition()` |
+| Microphone | `navigator.mediaDevices.getUserMedia()` |
+| SMS / Calls | `sms:` and `tel:` URI schemes |
+| Vibration | `navigator.vibrate()` Web API |
+| Font | [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) |
+| Styling | Vanilla CSS — no framework, no build step |
+| Routing | Single-page app, vanilla JS screen switching |
 
 ---
 
-## 📄 License
+## Design System
 
-MIT License — see [LICENSE](LICENSE) for details.
+| Token | Value | Used for |
+|---|---|---|
+| Primary pink | `#FF6B9D` | Buttons, icons, accents |
+| Light pink | `#FFB6C8` | Backgrounds, SOS dark mode text |
+| App background | `#FFF8FA` | Screen background |
+| Safe green | `#22C55E` | Safe status, confirmed check-ins |
+| SOS dark | `#0D0008` | Background when SOS is active |
+| Font | Space Grotesk 400–700 | All text |
 
 ---
 
-## 💌 About
+## Roadmap
 
-SafMeh was built with care for anyone who has ever felt unsafe walking alone, traveling at night, or being in an uncomfortable situation. The app quietly says:
+- [ ] Real contact storage (save numbers in browser localStorage)
+- [ ] Push notifications when check-in timer runs out
+- [ ] WhatsApp deep-link for SOS messages
+- [ ] Live location sharing with Trusted Circle (WebSockets)
+- [ ] Voice keyword detection (Web Speech API)
+- [ ] PWA manifest + offline support
+- [ ] Native app (Flutter) for fully silent SOS
+
+---
+
+## Original Flutter Version
+
+This repository also contains the original **Flutter app** design and architecture (in the `lib/` folder) with:
+- BLoC/Cubit state management
+- 9 feature cubits (auth, SOS, safe walk, fake call, pretend mode, etc.)
+- 177 unit tests
+- Full Firebase-ready architecture (swap mock → real by replacing one class)
+
+The web version (`server.js`) is a fully functional implementation of the same features that runs without any native install.
+
+---
+
+## About
+
+SafMeh was built for anyone who has ever felt unsafe walking alone, travelling at night, or being in an uncomfortable situation. It quietly says:
 
 > *"I care about your safety, even when I'm not there."*
 
 ---
 
-<p align="center">Made with 🌸 and Flutter</p>
+<div align="center">
+  <sub>Built with care · SafMeh · Open Source · MIT License</sub>
+</div>

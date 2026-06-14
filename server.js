@@ -870,8 +870,11 @@ function declineCall() {
 </html>`;
 
 const server = http.createServer((req, res) => {
+  const url = new URL(req.url, 'http://localhost');
+  const screen = url.searchParams.get('screen') || 'home';
+  const page = html.replace('</body>', `<script>window.addEventListener('load',()=>{ if('${screen}'!=='home') goTo('${screen}'); });</script></body>`);
   res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-  res.end(html);
+  res.end(page);
 });
 
 server.listen(PORT, '0.0.0.0', () => {
