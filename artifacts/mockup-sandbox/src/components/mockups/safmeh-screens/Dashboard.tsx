@@ -22,7 +22,7 @@ export function Dashboard() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
               <p style={{ margin: 0, fontSize: 12, color: "#FF6B9D", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>Good evening</p>
-              <h1 style={{ margin: "4px 0 0", fontSize: 24, fontWeight: 700, color: "#1A1A1A", letterSpacing: "-0.02em" }}>Mehak's Dashboard</h1>
+              <h1 style={{ margin: "4px 0 0", fontSize: 24, fontWeight: 700, color: "#1A1A1A", letterSpacing: "-0.02em" }}>Meku's Dashboard</h1>
             </div>
             <div style={{ width: 40, height: 40, borderRadius: 20, background: "linear-gradient(135deg,#FF6B9D,#FFB6C8)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
